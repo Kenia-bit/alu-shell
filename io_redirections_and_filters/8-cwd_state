@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Write the output of 'ls -la' into the file 'ls_cwd_content'
+# If the file exists, it will be overwritten. If not create it.
+
+ls -la > ls_cwd_content

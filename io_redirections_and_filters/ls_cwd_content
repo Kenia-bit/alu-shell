@@ -1,0 +1,14 @@
+total 48
+drwxrwxr-x 2 kenia kenia 4096 Jun  8 22:08 .
+drwxrwxr-x 7 kenia kenia 4096 May 29 14:38 ..
+-rwxrwxr-x 1 kenia kenia   30 May 29 14:50 0-hello_world
+-rwxrwxr-x 1 kenia kenia   28 May 29 14:58 1-confused_smiley
+-rwxrwxr-x 1 kenia kenia   28 May 29 15:06 2-hellofile
+-rwxrwxr-x 1 kenia kenia   39 May 29 15:11 3-twofiles
+-rwxrwxr-x 1 kenia kenia   29 May 29 15:28 4-lastlines
+-rwxrwxr-x 1 kenia kenia   29 May 29 15:28 5-firstlines
+-rwxrwxr-x 1 kenia kenia   40 Jun  4 12:10 6-third_line
+-rwxrwxr-x 1 kenia kenia   99 Jun  8 21:58 7-file
+-rwxrwxr-x 1 kenia kenia  164 Jun  8 22:08 8-cwd_state
+-rw-rw-r-- 1 kenia kenia    0 Jun  8 22:08 ls_cwd_content
+-rw-rw-r-- 1 kenia kenia   26 May 29 14:49 README.md
