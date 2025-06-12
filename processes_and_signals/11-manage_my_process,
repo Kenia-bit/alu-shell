@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Bash script manages both files that need to be pushed to git
+# Bash script manages both files that will be pushed to git
 PIDFILE="/var/run/my_process.pid"
 PROCESS="./manage_my_process"
 
@@ -39,4 +39,4 @@ case "$1" in
   *)
     echo "Usage: manage_my_process {start|stop|restart}"
     ;;
-esac 
+esac
