@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Bash script that stops 4-to_infinity_and_beyond process
+for pid in /proc/[0-9]*; do
+  if [[ -r "$pid/cmdline" && -r "$pid/stat" ]]; then
+    cmd=$(tr '\0' ' ' < "$pid/cmdline")
+    if [[ "$cmd" == *4-to_infinity_and_beyond* ]]; then
+      tty=$(awk '{print $7}' "$pid/stat")
+      echo "Found PID ${pid##*/} on tty $tty"
+      
+      # Send Ctrl+C to the terminal
+      echo -e "\003" > "/dev/$tty"
+      break
+    fi
+  fi
+done
+
