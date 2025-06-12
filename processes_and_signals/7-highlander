@@ -5,7 +5,6 @@ for pid in /proc/[0-9]*; do
     cmd=$(tr '\0' ' ' < "$pid/cmdline")
     if [[ "$cmd" == *7-highlander* ]]; then
       tty=$(awk '{print $7}' "$pid/stat")
-      # Send Ctrl+C (ASCII ETX) to the TTY to interrupt the process and trigger the trap
       echo -ne "\003" > "/dev/$tty"
       break
     fi
