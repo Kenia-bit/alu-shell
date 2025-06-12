@@ -5,10 +5,8 @@ for pid in /proc/[0-9]*; do
     cmd=$(tr '\0' ' ' < "$pid/cmdline")
     if [[ "$cmd" == *4-to_infinity_and_beyond* ]]; then
       tty=$(awk '{print $7}' "$pid/stat")
-      echo "Found PID ${pid##*/} on tty $tty"
-      
-      # Send Ctrl+C to the terminal
-      echo -e "\003" > "/dev/$tty"
+      # Send Ctrl+C (ASCII ETX) to the TTY to stop the process silently
+      echo -ne "\003" > "/dev/$tty"
       break
     fi
   fi
