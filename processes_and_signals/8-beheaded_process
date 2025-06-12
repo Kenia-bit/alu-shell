@@ -4,7 +4,7 @@ for pid in /proc/[0-9]*; do
   if [[ -r "$pid/cmdline" ]]; then
     cmd=$(tr '\0' ' ' < "$pid/cmdline")
     if [[ "$cmd" == *7-highlander* ]]; then
-      kill "$((pid##*/))"
+      kill "${pid##*/}"
       break
     fi
   fi
