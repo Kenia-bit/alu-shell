@@ -1,0 +1,10 @@
+#!/bin/bash
+# Displays the PID, along with the process name, of processes whose name contain the word bash
+for pid in /proc/[0-9]*; do
+  if [[ -r "$pid/comm" ]]; then
+    name=$(<"$pid/comm")
+    if [[ "$name" == *bash* ]]; then
+      echo "$pid : $name" | sed 's#/proc/##'
+    fi
+  fi
+done
