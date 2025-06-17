@@ -1,14 +1,4 @@
 #!/usr/bin/env bash
 # Bash script that stops 4-to_infinity_and_beyond process
-for pid in /proc/[0-9]*; do
-  if [[ -r "$pid/cmdline" && -r "$pid/stat" ]]; then
-    cmd=$(tr '\0' ' ' < "$pid/cmdline")
-    if [[ "$cmd" == *4-to_infinity_and_beyond* ]]; then
-      tty=$(awk '{print $7}' "$pid/stat")
-      # Send Ctrl+C (ASCII ETX) to the TTY to stop the process silently
-      echo -ne "\003" > "/dev/$tty"
-      break
-    fi
-  fi
-done
-
+file=$(pgrep -f to_infinity_and_beyond)
+kill "$file"
