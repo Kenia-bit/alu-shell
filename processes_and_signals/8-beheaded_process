@@ -1,11 +1,3 @@
 #!/usr/bin/env bash
 # Bash script kills the process 7-highlander
-for pid in /proc/[0-9]*; do
-  if [[ -r "$pid/cmdline" ]]; then
-    cmd=$(tr '\0' ' ' < "$pid/cmdline")
-    if [[ "$cmd" == *7-highlander* ]]; then
-      kill "${pid##*/}"
-      break
-    fi
-  fi
-done
+pkill -f 7-highlander -SIGKILL
