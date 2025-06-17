@@ -1,12 +1,8 @@
 #!/usr/bin/env bash
 # Displays to infinity and beyond indefinitely With a sleep 2 in between each iteration I am invincible!!! when receiving a SIGTERM signal
-for pid in /proc/[0-9]*; do
-  if [[ -r "$pid/cmdline" && -r "$pid/stat" ]]; then
-    cmd=$(tr '\0' ' ' < "$pid/cmdline")
-    if [[ "$cmd" == *7-highlander* ]]; then
-      tty=$(awk '{print $7}' "$pid/stat")
-      echo -ne "\003" > "/dev/$tty"
-      break
-    fi
-  fi
+trap 'echo "I am invincible!!!"' SIGTERM
+counter=2
+while [ $counter -gt 0 ]; do
+    echo "To infinity and beyond"
+    sleep 2
 done
