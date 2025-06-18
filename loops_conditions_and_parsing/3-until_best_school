@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Displays Best School 10 times.
 counter=10
-until [  $counter -lt 1 ]; do
+until [  $counter -lt 1 ]; do # if counter is not lower than 1, this loop will keep excuting its commands
     echo "Best School"
-    let counter-=1
+    (( counter-=1 )) # this will remove one per each loop
 done
